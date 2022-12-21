@@ -1,12 +1,10 @@
 // Copyright (c) 2022 Marshall Demars All rights reserved
 
 // Created by: Marshall Demars
-// Created on: Nov 2022
-// This program sees if you guess the right number using while true
+// Created on: Dec 2022
+// This program takes a number and returns it's digits
 
 #include <iostream>
-#include <random>
-#include <string>
 
 int main() {
     // This program sees if you guess the right number using while true
