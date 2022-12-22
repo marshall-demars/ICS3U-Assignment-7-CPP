@@ -21,10 +21,6 @@ int digitList(std::list<int> listOfDigits, int userInt) {
 
 int main() {
     // this function gets user input and returns output
-    std::cout << "This program takes a given number"
-              << " and returns a list of it's digits."
-              << std::endl;
-    std::cout << "" << std::endl;
 
     // variables
     std::string userInput;
