@@ -4,37 +4,50 @@
 // Created on: Dec 2022
 // This program takes a number and returns it's digits
 
+#include <iomanip>
 #include <iostream>
+#include <list>
+#include <string>
+
+int digitList(std::list<int> listOfDigits, int userInt) {
+    // this function returns the digits
+
+    while (userInt) {
+        listOfDigits.push_front(userInt % 10);
+        userInt = userInt / 10;
+    }
+    return userInt;
+}
 
 int main() {
-    // This program sees if you guess the right number using while true
-    int guessAsInt;
-    int randomNumber;
-    std::string guessAsString;
+    // this function gets user input and returns output
+    std::cout << "This program takes a given number"
+              << " and returns a list of it's digits."
+              << std::endl;
+    std::cout << "" << std::endl;
 
+    // variables
+    std::string userInput;
+    int userInt;
+    std::list<int> listOfDigits;
+
+    // input
     while (true) {
-        std::random_device rseed;
-        std::mt19937 rgen(rseed());
-        std::uniform_int_distribution<int> idist(0, 9);
-        randomNumber = idist(rgen);
-
-        // Input
-        std::cout << "\nEnter the number between 0-9: ";
-        std::cin >> guessAsString;
-        std::cout << std::endl;
-
-        // Process and Output
         try {
-            guessAsInt = std::stoi(guessAsString);
-            if (guessAsInt == randomNumber) {
-                std::cout << "\nYou guessed right." << std::endl;
-                break;
-            } else {
-                std::cout << "\nYou guessed wrong, try again." << std::endl;
+            std::cout << "The original number is: ";
+            std::cin >> userInput;
+            userInt = std::stoi(userInput);
+
+            digitList(listOfDigits, userInt);
+
+            for (int digits : listOfDigits) {
+                std::cout << digits << ", ";
             }
+
+            break;
         } catch (std::invalid_argument) {
-            std::cout << "\nPlease enter a valid number." << std::endl;
+            std::cout << "\nInvalid Integer." << std::endl;
         }
     }
-    std::cout << "\nDone.";
+    std::cout << "\nDone." << std::endl;
 }
